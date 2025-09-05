@@ -1,165 +1,120 @@
-import React from "react";
-import ReactDOM from "react-dom/client";
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sierra Foods Inc.</title>
+  <!-- React & ReactDOM CDN -->
+  <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
+  <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background-color: #fff8f0; color: #333; }
+    header { background-color: #c53030; color: #fff; padding: 30px; text-align: center; }
+    header h1 { margin: 0; font-size: 36px; }
+    header p { margin-top: 10px; font-size: 18px; }
+    section { padding: 40px; text-align: center; }
+    .menu-section { background-color: #fff2e8; }
+    .card { flex: 1 1 300px; background-color: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    .services-card { flex: 1 1 250px; background-color: #fef5f0; padding: 20px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+    .flex-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    ul { list-style-type: disc; padding-left: 20px; text-align: left; }
+    .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+    .gallery-grid img { width: 100%; border-radius: 12px; }
+    footer { background-color: #c53030; color: #fff; padding: 20px; text-align: center; }
+  </style>
+</head>
+<body>
+  <div id="root"></div>
 
-function App() {
-  const appStyle = {
-    fontFamily: "Arial, sans-serif",
-    backgroundColor: "#fff8f0",
-    color: "#333",
-    margin: 0,
-    padding: 0,
-  };
+  <script type="text/javascript">
+    const e = React.createElement;
 
-  const headerStyle = {
-    backgroundColor: "#c53030",
-    color: "#fff",
-    padding: "30px",
-    textAlign: "center",
-  };
+    function App() {
+      return e('div', null,
+        e('header', null,
+          e('h1', null, 'Sierra Foods Inc.'),
+          e('p', null, 'Authentic Nigerian & Yoruba Dishes')
+        ),
+        e('section', null,
+          e('h2', null, 'About Us'),
+          e('p', { style: { maxWidth: '800px', margin: '0 auto' } }, 
+            'Sierra Foods Inc., based in Yaba, Lagos, Nigeria, is owned by renowned caterer ',
+            e('strong', null, 'Muinat Motunrayo'),
+            '. We specialize in Nigerian dishes and Yoruba delicacies. We provide home delivery and chef rental services to make your experience memorable.'
+          )
+        ),
+        e('section', { className: 'menu-section' },
+          e('h2', null, 'Our Menu'),
+          e('div', { className: 'flex-container' },
+            e('div', { className: 'card' },
+              e('h3', null, 'Rice Dishes'),
+              e('ul', null,
+                e('li', null, 'Rice & Beans with Stew'),
+                e('li', null, 'Jollof Rice'),
+                e('li', null, 'Fried Rice')
+              ),
+              e('img', { src: 'https://images.unsplash.com/photo-1608759762903-0e0c18ed0df0?auto=format&fit=crop&w=800&q=80', alt: 'Rice Dishes' })
+            ),
+            e('div', { className: 'card' },
+              e('h3', null, 'Proteins & Extras'),
+              e('ul', null,
+                e('li', null, 'Chicken'),
+                e('li', null, 'Turkey'),
+                e('li', null, 'Beef'),
+                e('li', null, 'Goat Meat'),
+                e('li', null, 'Fish'),
+                e('li', null, 'Egg'),
+                e('li', null, 'Assorted Meat'),
+                e('li', null, 'Salad')
+              ),
+              e('img', { src: 'https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80', alt: 'Proteins' })
+            )
+          )
+        ),
+        e('section', null,
+          e('h2', null, 'Our Services'),
+          e('div', { className: 'flex-container', style: { gap: '20px' } },
+            e('div', { className: 'services-card' },
+              e('h3', null, 'Home Delivery'),
+              e('p', null, 'Get your favorite Nigerian dishes delivered fresh and fast.')
+            ),
+            e('div', { className: 'services-card' },
+              e('h3', null, 'Chef Rental'),
+              e('p', null, 'Main Chef: ₦150,000/day'),
+              e('p', null, 'Sous Chef: ₦100,000/day'),
+              e('p', null, 'Both: ₦230,000/day')
+            ),
+            e('div', { className: 'services-card' },
+              e('h3', null, 'Catering Services'),
+              e('p', null, 'Perfect for parties, weddings, and corporate events with authentic Nigerian flavors.')
+            )
+          )
+        ),
+        e('section', { className: 'menu-section' },
+          e('h2', null, 'Gallery'),
+          e('div', { className: 'gallery-grid' },
+            e('img', { src: 'https://images.unsplash.com/photo-1617196030738-ded8052762b4?auto=format&fit=crop&w=800&q=80', alt: 'Amala' }),
+            e('img', { src: 'https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80', alt: 'Fried Rice' }),
+            e('img', { src: 'https://images.unsplash.com/photo-1608759762903-0e0c18ed0df0?auto=format&fit=crop&w=800&q=80', alt: 'Jollof Rice' }),
+            e('img', { src: 'https://images.unsplash.com/photo-1612457170262-913d8a414f2c?auto=format&fit=crop&w=800&q=80', alt: 'Rice & Stew' }),
+            e('img', { src: 'https://images.unsplash.com/photo-1617196030714-b53c7e7eb0d8?auto=format&fit=crop&w=800&q=80', alt: 'Salad' }),
+            e('img', { src: 'https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80', alt: 'Assorted Meat' })
+          )
+        ),
+        e('section', null,
+          e('h2', null, 'Contact Us'),
+          e('p', null, 'Phone: ', e('a', { href: 'tel:07056885655' }, '07056885655')),
+          e('p', null, 'Email: ', e('a', { href: 'mailto:efundipom2011@gmail.com' }, 'efundipom2011@gmail.com')),
+          e('p', null, 'Address: Yaba, Lagos, Nigeria')
+        ),
+        e('footer', null,
+          e('p', null, `© ${new Date().getFullYear()} Sierra Foods Inc. All rights reserved.`)
+        )
+      );
+    }
 
-  const sectionStyle = {
-    padding: "40px",
-    textAlign: "center",
-  };
-
-  const menuSectionStyle = {
-    padding: "40px",
-    backgroundColor: "#fff2e8",
-  };
-
-  const cardStyle = {
-    flex: "1 1 300px",
-    backgroundColor: "#fff",
-    borderRadius: "15px",
-    padding: "20px",
-    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
-  };
-
-  const servicesCardStyle = {
-    flex: "1 1 250px",
-    backgroundColor: "#fef5f0",
-    padding: "20px",
-    borderRadius: "12px",
-    boxShadow: "0 3px 8px rgba(0,0,0,0.1)",
-  };
-
-  const galleryGridStyle = {
-    display: "grid",
-    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
-    gap: "20px",
-  };
-
-  const imageStyle = {
-    width: "100%",
-    borderRadius: "12px",
-  };
-
-  return (
-    <div style={appStyle}>
-      {/* Header */}
-      <header style={headerStyle}>
-        <h1>Sierra Foods Inc.</h1>
-        <p>Authentic Nigerian & Yoruba Dishes</p>
-      </header>
-
-      {/* About */}
-      <section style={sectionStyle}>
-        <h2>About Us</h2>
-        <p style={{ maxWidth: "800px", margin: "0 auto" }}>
-          Sierra Foods Inc., based in Yaba, Lagos, Nigeria, is owned by renowned caterer{" "}
-          <strong>Muinat Motunrayo</strong>. We specialize in Nigerian dishes and Yoruba delicacies.
-          We provide home delivery and chef rental services to make your experience memorable.
-        </p>
-      </section>
-
-      {/* Menu */}
-      <section style={menuSectionStyle}>
-        <h2>Our Menu</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "30px" }}>
-          <div style={cardStyle}>
-            <h3>Rice Dishes</h3>
-            <ul>
-              <li>Rice & Beans with Stew</li>
-              <li>Jollof Rice</li>
-              <li>Fried Rice</li>
-            </ul>
-            <img
-              src="https://images.unsplash.com/photo-1608759762903-0e0c18ed0df0?auto=format&fit=crop&w=800&q=80"
-              alt="Rice Dishes"
-              style={imageStyle}
-            />
-          </div>
-
-          <div style={cardStyle}>
-            <h3>Proteins & Extras</h3>
-            <ul>
-              <li>Chicken</li>
-              <li>Turkey</li>
-              <li>Beef</li>
-              <li>Goat Meat</li>
-              <li>Fish</li>
-              <li>Egg</li>
-              <li>Assorted Meat</li>
-              <li>Salad</li>
-            </ul>
-            <img
-              src="https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80"
-              alt="Proteins"
-              style={imageStyle}
-            />
-          </div>
-        </div>
-      </section>
-
-      {/* Services */}
-      <section style={sectionStyle}>
-        <h2>Our Services</h2>
-        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
-          <div style={servicesCardStyle}>
-            <h3>Home Delivery</h3>
-            <p>Get your favorite Nigerian dishes delivered fresh and fast.</p>
-          </div>
-          <div style={servicesCardStyle}>
-            <h3>Chef Rental</h3>
-            <p>Main Chef: ₦150,000/day</p>
-            <p>Sous Chef: ₦100,000/day</p>
-            <p>Both: ₦230,000/day</p>
-          </div>
-          <div style={servicesCardStyle}>
-            <h3>Catering Services</h3>
-            <p>Perfect for parties, weddings, and corporate events with authentic Nigerian flavors.</p>
-          </div>
-        </div>
-      </section>
-
-      {/* Gallery */}
-      <section style={menuSectionStyle}>
-        <h2>Gallery</h2>
-        <div style={galleryGridStyle}>
-          <img src="https://images.unsplash.com/photo-1617196030738-ded8052762b4?auto=format&fit=crop&w=800&q=80" alt="Amala" style={imageStyle} />
-          <img src="https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80" alt="Fried Rice" style={imageStyle} />
-          <img src="https://images.unsplash.com/photo-1608759762903-0e0c18ed0df0?auto=format&fit=crop&w=800&q=80" alt="Jollof Rice" style={imageStyle} />
-          <img src="https://images.unsplash.com/photo-1612457170262-913d8a414f2c?auto=format&fit=crop&w=800&q=80" alt="Rice & Stew" style={imageStyle} />
-          <img src="https://images.unsplash.com/photo-1617196030714-b53c7e7eb0d8?auto=format&fit=crop&w=800&q=80" alt="Salad" style={imageStyle} />
-          <img src="https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80" alt="Assorted Meat" style={imageStyle} />
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section style={sectionStyle}>
-        <h2>Contact Us</h2>
-        <p>Phone: <a href="tel:07056885655">07056885655</a></p>
-        <p>Email: <a href="mailto:efundipom2011@gmail.com">efundipom2011@gmail.com</a></p>
-        <p>Address: Yaba, Lagos, Nigeria</p>
-      </section>
-
-      {/* Footer */}
-      <footer style={{ backgroundColor: "#c53030", color: "#fff", padding: "20px", textAlign: "center" }}>
-        <p>© {new Date().getFullYear()} Sierra Foods Inc. All rights reserved.</p>
-      </footer>
-    </div>
-  );
-}
-
-const root = ReactDOM.createRoot(document.getElementById("root"));
-root.render(<App />);
+    const root = ReactDOM.createRoot(document.getElementById('root'));
+    root.render(e(App));
+  </script>
+</body>
+</html>
