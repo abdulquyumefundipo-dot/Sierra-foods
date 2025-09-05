@@ -1,12 +1,151 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sierra Foods Inc – Yaba, Lagos</title>
-  <meta name="description" content="Sierra Foods Inc. serves authentic Nigerian & Yoruba dishes in Lagos. Home services, chef rentals, and home deliveries.">
-</head>
-<body>
-  <p>If you can read this, the ZIP extracted correctly. Open index.html to view the site. (Full styled version will show when deployed.)</p>
-</body>
-</html>
+import React from "react";
+import { motion } from "framer-motion";
+import { Phone, Mail, MapPin } from "lucide-react";
+
+export default function SierraFoods() {
+  return (
+    <div className="min-h-screen bg-gray-50 text-gray-800">
+      {/* Header */}
+      <header className="bg-red-600 text-white p-6 shadow-md">
+        <h1 className="text-3xl font-bold">Sierra Foods Inc.</h1>
+        <p className="text-lg">Authentic Nigerian & Yoruba Dishes</p>
+      </header>
+
+      {/* About Section */}
+      <section className="p-6 text-center">
+        <motion.h2
+          initial={{ opacity: 0, y: -20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="text-2xl font-semibold mb-4"
+        >
+          About Us
+        </motion.h2>
+        <p className="max-w-3xl mx-auto text-lg">
+          Sierra Foods Inc., based in Yaba, Lagos, Nigeria, is owned by renowned
+          caterer <strong>Muinat Motunrayo</strong>. We specialize in Nigerian
+          delicacies — from rice dishes to rich Yoruba meals. Whether you’re
+          dining at home or hosting an event, we’ve got you covered with home
+          delivery and chef rental services.
+        </p>
+      </section>
+
+      {/* Menu Section */}
+      <section className="p-6 bg-white shadow-md">
+        <h2 className="text-2xl font-semibold text-center mb-6">Our Menu</h2>
+        <div className="grid md:grid-cols-2 gap-8">
+          <div className="rounded-xl shadow p-4 bg-gray-100">
+            <h3 className="text-xl font-bold mb-2">Rice Dishes</h3>
+            <ul className="list-disc ml-6">
+              <li>Rice & Beans with Stew</li>
+              <li>Jollof Rice</li>
+              <li>Fried Rice</li>
+            </ul>
+            <img
+              src="https://www.demandafrica.com/wp-content/uploads/2017/06/Jollof-Rice.jpg"
+              alt="Nigerian Jollof Rice"
+              className="rounded-lg mt-4 shadow"
+            />
+          </div>
+          <div className="rounded-xl shadow p-4 bg-gray-100">
+            <h3 className="text-xl font-bold mb-2">Proteins & Extras</h3>
+            <ul className="list-disc ml-6">
+              <li>Chicken</li>
+              <li>Turkey</li>
+              <li>Beef</li>
+              <li>Goat Meat</li>
+              <li>Fish</li>
+              <li>Egg</li>
+              <li>Assorted Meat</li>
+              <li>Salad</li>
+            </ul>
+            <img
+              src="https://allnigerianfoods.com/wp-content/uploads/chicken-stew.jpg"
+              alt="Nigerian Chicken Stew"
+              className="rounded-lg mt-4 shadow"
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Services Section */}
+      <section className="p-6 bg-gray-50">
+        <h2 className="text-2xl font-semibold text-center mb-6">Our Services</h2>
+        <div className="grid md:grid-cols-3 gap-6">
+          <div className="bg-white shadow p-4 rounded-xl">
+            <h3 className="text-xl font-bold mb-2">Home Delivery</h3>
+            <p>Order your favorite Nigerian dishes and get them delivered fast and fresh.</p>
+          </div>
+          <div className="bg-white shadow p-4 rounded-xl">
+            <h3 className="text-xl font-bold mb-2">Chef Rental</h3>
+            <p>Main Chef: ₦150,000/day</p>
+            <p>Sous Chef: ₦100,000/day</p>
+            <p>Both: ₦230,000/day</p>
+          </div>
+          <div className="bg-white shadow p-4 rounded-xl">
+            <h3 className="text-xl font-bold mb-2">Catering Services</h3>
+            <p>We provide catering for parties, weddings, and corporate events with authentic flavors.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery Section */}
+      <section className="p-6 bg-white shadow-md">
+        <h2 className="text-2xl font-semibold text-center mb-6">Gallery</h2>
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <img
+            src="https://allnigerianfoods.com/wp-content/uploads/2017/07/Amala-and-ewedu-soup.jpg"
+            alt="Amala, Ewedu and Gbegiri"
+            className="rounded-xl shadow"
+          />
+          <img
+            src="https://allnigerianfoods.com/wp-content/uploads/2019/06/nigerian-fried-rice.jpg"
+            alt="Nigerian Fried Rice"
+            className="rounded-xl shadow"
+          />
+          <img
+            src="https://allnigerianfoods.com/wp-content/uploads/2019/06/nigerian-jollof-rice.jpg"
+            alt="Nigerian Jollof Rice"
+            className="rounded-xl shadow"
+          />
+          <img
+            src="https://allnigerianfoods.com/wp-content/uploads/2019/06/white-rice-and-stew.jpg"
+            alt="Rice and Stew"
+            className="rounded-xl shadow"
+          />
+          <img
+            src="https://allnigerianfoods.com/wp-content/uploads/2019/06/nigerian-salad.jpg"
+            alt="Nigerian Salad"
+            className="rounded-xl shadow"
+          />
+          <img
+            src="https://allnigerianfoods.com/wp-content/uploads/2019/06/nigerian-assorted-meat.jpg"
+            alt="Assorted Meat"
+            className="rounded-xl shadow"
+          />
+        </div>
+      </section>
+
+      {/* Contact Section */}
+      <section className="p-6 bg-red-50">
+        <h2 className="text-2xl font-semibold text-center mb-6">Contact Us</h2>
+        <div className="flex flex-col md:flex-row justify-center gap-8 text-lg">
+          <p className="flex items-center gap-2">
+            <Phone /> <a href="tel:07056885655">07056885655</a>
+          </p>
+          <p className="flex items-center gap-2">
+            <Mail /> <a href="mailto:efundipom2011@gmail.com">efundipom2011@gmail.com</a>
+          </p>
+          <p className="flex items-center gap-2">
+            <MapPin /> Yaba, Lagos, Nigeria
+          </p>
+        </div>
+      </section>
+
+      {/* Footer */}
+      <footer className="bg-red-600 text-white p-4 text-center mt-6">
+        <p>© {new Date().getFullYear()} Sierra Foods Inc. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}
