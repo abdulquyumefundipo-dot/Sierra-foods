@@ -2,27 +2,81 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 
 function App() {
+  const appStyle = {
+    fontFamily: "Arial, sans-serif",
+    backgroundColor: "#fff8f0",
+    color: "#333",
+    margin: 0,
+    padding: 0,
+  };
+
+  const headerStyle = {
+    backgroundColor: "#c53030",
+    color: "#fff",
+    padding: "30px",
+    textAlign: "center",
+  };
+
+  const sectionStyle = {
+    padding: "40px",
+    textAlign: "center",
+  };
+
+  const menuSectionStyle = {
+    padding: "40px",
+    backgroundColor: "#fff2e8",
+  };
+
+  const servicesCardStyle = {
+    flex: "1 1 250px",
+    backgroundColor: "#fef5f0",
+    padding: "20px",
+    borderRadius: "12px",
+    boxShadow: "0 3px 8px rgba(0,0,0,0.1)",
+  };
+
+  const cardStyle = {
+    flex: "1 1 300px",
+    backgroundColor: "#fff",
+    borderRadius: "15px",
+    padding: "20px",
+    boxShadow: "0 4px 10px rgba(0,0,0,0.1)",
+  };
+
+  const galleryGridStyle = {
+    display: "grid",
+    gridTemplateColumns: "repeat(auto-fit, minmax(250px, 1fr))",
+    gap: "20px",
+  };
+
+  const imageStyle = {
+    width: "100%",
+    borderRadius: "12px",
+  };
+
   return (
-    <div style={{ fontFamily: "Arial, sans-serif", backgroundColor: "#fff8f0", color: "#333" }}>
+    <div style={appStyle}>
       {/* Header */}
-      <header style={{ backgroundColor: "#c53030", color: "#fff", padding: "30px", textAlign: "center" }}>
+      <header style={headerStyle}>
         <h1 style={{ fontSize: "36px", margin: 0 }}>Sierra Foods Inc.</h1>
         <p style={{ fontSize: "18px", marginTop: "10px" }}>Authentic Nigerian & Yoruba Dishes</p>
       </header>
 
       {/* About */}
-      <section style={{ padding: "40px", textAlign: "center" }}>
+      <section style={sectionStyle}>
         <h2 style={{ fontSize: "28px", marginBottom: "20px" }}>About Us</h2>
         <p style={{ maxWidth: "800px", margin: "0 auto", fontSize: "16px", lineHeight: "1.6" }}>
-          Sierra Foods Inc., based in Yaba, Lagos, Nigeria, is owned by renowned caterer <strong>Muinat Motunrayo</strong>. We specialize in Nigerian dishes and Yoruba delicacies. We provide home delivery and chef rental services to make your experience memorable.
+          Sierra Foods Inc., based in Yaba, Lagos, Nigeria, is owned by renowned caterer{" "}
+          <strong>Muinat Motunrayo</strong>. We specialize in Nigerian dishes and Yoruba delicacies. We
+          provide home delivery and chef rental services to make your experience memorable.
         </p>
       </section>
 
       {/* Menu */}
-      <section style={{ padding: "40px", backgroundColor: "#fff2e8" }}>
+      <section style={menuSectionStyle}>
         <h2 style={{ fontSize: "28px", textAlign: "center", marginBottom: "30px" }}>Our Menu</h2>
         <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "30px" }}>
-          <div style={{ flex: "1 1 300px", backgroundColor: "#fff", borderRadius: "15px", padding: "20px", boxShadow: "0 4px 10px rgba(0,0,0,0.1)" }}>
+          <div style={cardStyle}>
             <h3 style={{ fontSize: "22px", marginBottom: "15px" }}>Rice Dishes</h3>
             <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
               <li>Rice & Beans with Stew</li>
@@ -34,6 +88,105 @@ function App() {
               alt="Jollof Rice"
               style={{ width: "100%", borderRadius: "10px", marginTop: "15px" }}
             />
+          </div>
+
+          <div style={cardStyle}>
+            <h3 style={{ fontSize: "22px", marginBottom: "15px" }}>Proteins & Extras</h3>
+            <ul style={{ listStyleType: "disc", paddingLeft: "20px" }}>
+              <li>Chicken</li>
+              <li>Turkey</li>
+              <li>Beef</li>
+              <li>Goat Meat</li>
+              <li>Fish</li>
+              <li>Egg</li>
+              <li>Assorted Meat</li>
+              <li>Salad</li>
+            </ul>
+            <img
+              src="https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80"
+              alt="Assorted Meat"
+              style={{ width: "100%", borderRadius: "10px", marginTop: "15px" }}
+            />
+          </div>
+        </div>
+      </section>
+
+      {/* Services */}
+      <section style={sectionStyle}>
+        <h2 style={{ fontSize: "28px", marginBottom: "30px" }}>Our Services</h2>
+        <div style={{ display: "flex", flexWrap: "wrap", justifyContent: "center", gap: "20px" }}>
+          <div style={servicesCardStyle}>
+            <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>Home Delivery</h3>
+            <p>Get your favorite Nigerian dishes delivered fresh and fast.</p>
+          </div>
+          <div style={servicesCardStyle}>
+            <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>Chef Rental</h3>
+            <p>Main Chef: ₦150,000/day</p>
+            <p>Sous Chef: ₦100,000/day</p>
+            <p>Both: ₦230,000/day</p>
+          </div>
+          <div style={servicesCardStyle}>
+            <h3 style={{ fontSize: "20px", marginBottom: "10px" }}>Catering Services</h3>
+            <p>Perfect for parties, weddings, and corporate events with authentic Nigerian flavors.</p>
+          </div>
+        </div>
+      </section>
+
+      {/* Gallery */}
+      <section style={menuSectionStyle}>
+        <h2 style={{ fontSize: "28px", textAlign: "center", marginBottom: "30px" }}>Gallery</h2>
+        <div style={galleryGridStyle}>
+          <img
+            src="https://images.unsplash.com/photo-1617196030738-ded8052762b4?auto=format&fit=crop&w=800&q=80"
+            alt="Amala"
+            style={imageStyle}
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80"
+            alt="Fried Rice"
+            style={imageStyle}
+          />
+          <img
+            src="https://images.unsplash.com/photo-1608759762903-0e0c18ed0df0?auto=format&fit=crop&w=800&q=80"
+            alt="Jollof Rice"
+            style={imageStyle}
+          />
+          <img
+            src="https://images.unsplash.com/photo-1612457170262-913d8a414f2c?auto=format&fit=crop&w=800&q=80"
+            alt="Rice & Stew"
+            style={imageStyle}
+          />
+          <img
+            src="https://images.unsplash.com/photo-1617196030714-b53c7e7eb0d8?auto=format&fit=crop&w=800&q=80"
+            alt="Salad"
+            style={imageStyle}
+          />
+          <img
+            src="https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80"
+            alt="Assorted Meat"
+            style={imageStyle}
+          />
+        </div>
+      </section>
+
+      {/* Contact */}
+      <section style={sectionStyle}>
+        <h2 style={{ fontSize: "28px", marginBottom: "20px" }}>Contact Us</h2>
+        <p style={{ fontSize: "18px", margin: "10px 0" }}>Phone: <a href="tel:07056885655">07056885655</a></p>
+        <p style={{ fontSize: "18px", margin: "10px 0" }}>Email: <a href="mailto:efundipom2011@gmail.com">efundipom2011@gmail.com</a></p>
+        <p style={{ fontSize: "18px", margin: "10px 0" }}>Address: Yaba, Lagos, Nigeria</p>
+      </section>
+
+      {/* Footer */}
+      <footer style={{ backgroundColor: "#c53030", color: "#fff", padding: "20px", textAlign: "center" }}>
+        <p>© {new Date().getFullYear()} Sierra Foods Inc. All rights reserved.</p>
+      </footer>
+    </div>
+  );
+}
+
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(<App />);
           </div>
 
           <div style={{ flex: "1 1 300px", backgroundColor: "#fff", borderRadius: "15px", padding: "20px", boxShadow: "0 4px 10px rgba(0,0,0,0.1)" }}>
