@@ -4,37 +4,65 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Sierra Foods Inc.</title>
-  <!-- React & ReactDOM CDN -->
   <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin></script>
   <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script>
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background-color: #fff8f0; color: #333; }
-    header { background-color: #c53030; color: #fff; padding: 30px; text-align: center; }
-    header h1 { margin: 0; font-size: 36px; }
+    body { margin: 0; font-family: 'Segoe UI', sans-serif; background-color: #fff8f5; color: #333; }
+    header { background: linear-gradient(90deg, #f05d5e, #f9a03f); color: #fff; padding: 40px 20px; text-align: center; }
+    header h1 { margin: 0; font-size: 38px; letter-spacing: 1px; }
     header p { margin-top: 10px; font-size: 18px; }
-    section { padding: 40px; text-align: center; }
-    .menu-section { background-color: #fff2e8; }
-    .card { flex: 1 1 300px; background-color: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    .services-card { flex: 1 1 250px; background-color: #fef5f0; padding: 20px; border-radius: 12px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
-    .flex-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 30px; }
+    section { padding: 50px 20px; text-align: center; }
+    section h2 { font-size: 30px; margin-bottom: 25px; color: #f05d5e; }
+    .menu-section { background-color: #fff2eb; }
+    .flex-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 25px; }
+    .card { flex: 1 1 300px; background: #fff; border-radius: 15px; padding: 20px; box-shadow: 0 6px 15px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .card:hover { transform: translateY(-5px); }
+    .card img { width: 100%; border-radius: 12px; margin-top: 15px; }
+    .order-btn { margin-top: 15px; background: #f05d5e; color: #fff; border: none; padding: 10px 20px; border-radius: 8px; cursor: pointer; transition: background 0.3s ease; }
+    .order-btn:hover { background: #d24444; }
+    .services-card { flex: 1 1 250px; background: #fff3e3; padding: 20px; border-radius: 12px; box-shadow: 0 4px 12px rgba(0,0,0,0.1); transition: transform 0.3s ease; }
+    .services-card:hover { transform: translateY(-5px); }
     ul { list-style-type: disc; padding-left: 20px; text-align: left; }
+    a { color: #f05d5e; text-decoration: none; }
+    a:hover { text-decoration: underline; }
     .gallery-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
-    .gallery-grid img { width: 100%; border-radius: 12px; }
-    footer { background-color: #c53030; color: #fff; padding: 20px; text-align: center; }
+    .gallery-grid img { width: 100%; border-radius: 12px; transition: transform 0.3s ease; }
+    .gallery-grid img:hover { transform: scale(1.05); }
+    footer { background: linear-gradient(90deg, #f05d5e, #f9a03f); color: #fff; padding: 25px 20px; text-align: center; }
+    form { max-width: 400px; margin: 0 auto; display: flex; flex-direction: column; gap: 15px; }
+    input, select { padding: 10px; border-radius: 8px; border: 1px solid #ccc; }
+    button.submit-btn { background: #f05d5e; color: #fff; border: none; padding: 12px; border-radius: 8px; cursor: pointer; transition: background 0.3s ease; }
+    button.submit-btn:hover { background: #d24444; }
+    @media(max-width: 768px) { .flex-container { flex-direction: column; align-items: center; } }
   </style>
 </head>
 <body>
   <div id="root"></div>
-
   <script type="text/javascript">
     const e = React.createElement;
 
     function App() {
+
+      const orderDish = (dish) => {
+        alert(`Thank you! You ordered: ${dish}. Our delivery team will contact you shortly!`);
+      }
+
+      const bookChef = (e) => {
+        e.preventDefault();
+        const name = e.target.name.value;
+        const phone = e.target.phone.value;
+        const chef = e.target.chef.value;
+        alert(`Thank you, ${name}! You booked ${chef}. We will contact you on ${phone}.`);
+        e.target.reset();
+      }
+
       return e('div', null,
         e('header', null,
           e('h1', null, 'Sierra Foods Inc.'),
           e('p', null, 'Authentic Nigerian & Yoruba Dishes')
         ),
+
+        // About
         e('section', null,
           e('h2', null, 'About Us'),
           e('p', { style: { maxWidth: '800px', margin: '0 auto' } }, 
@@ -43,6 +71,8 @@
             '. We specialize in Nigerian dishes and Yoruba delicacies. We provide home delivery and chef rental services to make your experience memorable.'
           )
         ),
+
+        // Menu
         e('section', { className: 'menu-section' },
           e('h2', null, 'Our Menu'),
           e('div', { className: 'flex-container' },
@@ -53,7 +83,8 @@
                 e('li', null, 'Jollof Rice'),
                 e('li', null, 'Fried Rice')
               ),
-              e('img', { src: 'https://images.unsplash.com/photo-1608759762903-0e0c18ed0df0?auto=format&fit=crop&w=800&q=80', alt: 'Rice Dishes' })
+              e('img', { src: 'https://cdn.pixabay.com/photo/2017/01/15/20/39/jollof-rice-1986613_1280.jpg', alt: 'Rice Dishes' }),
+              e('button', { className: 'order-btn', onClick: () => orderDish('Rice Dishes') }, 'Order Now')
             ),
             e('div', { className: 'card' },
               e('h3', null, 'Proteins & Extras'),
@@ -67,10 +98,13 @@
                 e('li', null, 'Assorted Meat'),
                 e('li', null, 'Salad')
               ),
-              e('img', { src: 'https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80', alt: 'Proteins' })
+              e('img', { src: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/chicken-1239124_1280.jpg', alt: 'Proteins' }),
+              e('button', { className: 'order-btn', onClick: () => orderDish('Proteins & Extras') }, 'Order Now')
             )
           )
         ),
+
+        // Services
         e('section', null,
           e('h2', null, 'Our Services'),
           e('div', { className: 'flex-container', style: { gap: '20px' } },
@@ -90,23 +124,44 @@
             )
           )
         ),
+
+        // Gallery
         e('section', { className: 'menu-section' },
           e('h2', null, 'Gallery'),
           e('div', { className: 'gallery-grid' },
-            e('img', { src: 'https://images.unsplash.com/photo-1617196030738-ded8052762b4?auto=format&fit=crop&w=800&q=80', alt: 'Amala' }),
-            e('img', { src: 'https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80', alt: 'Fried Rice' }),
-            e('img', { src: 'https://images.unsplash.com/photo-1608759762903-0e0c18ed0df0?auto=format&fit=crop&w=800&q=80', alt: 'Jollof Rice' }),
-            e('img', { src: 'https://images.unsplash.com/photo-1612457170262-913d8a414f2c?auto=format&fit=crop&w=800&q=80', alt: 'Rice & Stew' }),
-            e('img', { src: 'https://images.unsplash.com/photo-1617196030714-b53c7e7eb0d8?auto=format&fit=crop&w=800&q=80', alt: 'Salad' }),
-            e('img', { src: 'https://images.unsplash.com/photo-1600180758895-cb0b50cb226f?auto=format&fit=crop&w=800&q=80', alt: 'Assorted Meat' })
+            e('img', { src: 'https://cdn.pixabay.com/photo/2015/06/03/10/41/fried-rice-796134_1280.jpg', alt: 'Fried Rice' }),
+            e('img', { src: 'https://cdn.pixabay.com/photo/2017/01/15/20/39/jollof-rice-1986613_1280.jpg', alt: 'Jollof Rice' }),
+            e('img', { src: 'https://cdn.pixabay.com/photo/2014/03/25/16/21/steak-296268_1280.jpg', alt: 'Assorted Meat' }),
+            e('img', { src: 'https://cdn.pixabay.com/photo/2017/06/02/18/24/vegetable-salad-2369043_1280.jpg', alt: 'Salad' }),
+            e('img', { src: 'https://cdn.pixabay.com/photo/2016/03/05/19/02/chicken-1239124_1280.jpg', alt: 'Chicken' }),
+            e('img', { src: 'https://cdn.pixabay.com/photo/2016/11/29/13/14/fish-1867108_1280.jpg', alt: 'Fish' })
           )
         ),
+
+        // Chef Booking Form
+        e('section', null,
+          e('h2', null, 'Book a Chef'),
+          e('form', { onSubmit: bookChef },
+            e('input', { type: 'text', name: 'name', placeholder: 'Your Name', required: true }),
+            e('input', { type: 'tel', name: 'phone', placeholder: 'Your Phone Number', required: true }),
+            e('select', { name: 'chef', required: true },
+              e('option', { value: '' }, '--Select Chef--'),
+              e('option', { value: 'Main Chef' }, 'Main Chef - ₦150,000/day'),
+              e('option', { value: 'Sous Chef' }, 'Sous Chef - ₦100,000/day'),
+              e('option', { value: 'Both' }, 'Both - ₦230,000/day')
+            ),
+            e('button', { type: 'submit', className: 'submit-btn' }, 'Book Now')
+          )
+        ),
+
+        // Contact
         e('section', null,
           e('h2', null, 'Contact Us'),
           e('p', null, 'Phone: ', e('a', { href: 'tel:07056885655' }, '07056885655')),
           e('p', null, 'Email: ', e('a', { href: 'mailto:efundipom2011@gmail.com' }, 'efundipom2011@gmail.com')),
           e('p', null, 'Address: Yaba, Lagos, Nigeria')
         ),
+
         e('footer', null,
           e('p', null, `© ${new Date().getFullYear()} Sierra Foods Inc. All rights reserved.`)
         )
